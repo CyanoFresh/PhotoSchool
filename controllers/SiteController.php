@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Form;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -49,7 +50,17 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Form();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+            return $this->render('success', [
+                'model' => $model,
+            ]);
+        }
+
+        return $this->render('index', [
+            'model' => $model,
+        ]);
     }
 
     public function actionLogin()
