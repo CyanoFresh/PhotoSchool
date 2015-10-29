@@ -6,7 +6,7 @@
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Главная';
 ?>
 <div class="site-index">
 
