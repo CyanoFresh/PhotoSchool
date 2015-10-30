@@ -30,7 +30,7 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-default navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
@@ -55,9 +55,25 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Yii::$app->name ?> <?= date('Y') ?></p>
+<!--        <p class="pull-left">&copy; --><?//= Yii::$app->name ?><!-- --><?//= date('Y') ?><!--</p>-->
+<!---->
+<!--        <p class="pull-right"></p>-->
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>Контакты</h4>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+                Фотограф - Соломаха Алена<br>
+
+                сайт - fotoboom.net<br>
+
+                vk - vk.com</p>
+            </div>
+            <div class="col-sm-4">
+                <h4>Телефон</h4>
+
+                <p>+38093485738745</p>
+            </div>
+        </div>
     </div>
 </footer>
 
