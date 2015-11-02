@@ -49,6 +49,7 @@ class Form extends ActiveRecord
             'class' => 'Класс',
             'school' => 'Школа',
             'text' => 'Сообщение',
+            'photo' => 'Похожие фото',
         ];
     }
 }
