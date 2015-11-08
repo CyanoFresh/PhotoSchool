@@ -37,9 +37,10 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Порфолио', 'url' => ['/site/about']],
+            ['label' => 'Порфолио', 'url' => ['/site/portfolio']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
-            ['label' => 'Отзывы', 'url' => ['/site/about']],
+            ['label' => 'Отзывы', 'url' => ['/site/reviews']],
+            ['label' => 'Фотостудия', 'url' => ['/site/studio']],
         ],
     ]);
     NavBar::end();
@@ -55,21 +56,18 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-<!--        <p class="pull-left">&copy; --><?//= Yii::$app->name ?><!-- --><?//= date('Y') ?><!--</p>-->
-<!---->
-<!--        <p class="pull-right"></p>-->
         <div class="row">
             <div class="col-sm-8">
-                <h4>Контакты</h4>
+                <h3>Контакты</h3>
 
-                Фотограф - Соломаха Алена<br>
+                <p>Фотограф - Соломаха Алена</p>
 
-                сайт - fotoboom.net<br>
+                <p>сайт - fotoboom.net</p>
 
-                vk - vk.com</p>
+                <p>vk - vk.com</p>
             </div>
             <div class="col-sm-4">
-                <h4>Телефон</h4>
+                <h3>Телефон</h3>
 
                 <p>+38093485738745</p>
             </div>

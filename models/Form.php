@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "{{%form}}".
@@ -14,9 +15,15 @@ use yii\db\ActiveRecord;
  * @property string $school
  * @property string $class
  * @property string $text
+ * @property string $images
  */
 class Form extends ActiveRecord
 {
+    /**
+     * @var UploadedFile[]
+     */
+    public $images;
+
     /**
      * @inheritdoc
      */
@@ -32,8 +39,9 @@ class Form extends ActiveRecord
     {
         return [
             [['name', 'phone', 'class', 'school', 'text'], 'required'],
+            [['name', 'phone', 'class', 'school'], 'string', 'max' => 255],
             [['text'], 'string'],
-            [['name', 'phone', 'class', 'school'], 'string', 'max' => 255]
+            [['images'], 'image', 'maxFiles' => 5, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -49,7 +57,25 @@ class Form extends ActiveRecord
             'class' => 'Класс',
             'school' => 'Школа',
             'text' => 'Сообщение',
-            'photo' => 'Похожие фото',
+            'images' => 'Похожие фото',
         ];
+    }
+
+    public function upload()
+    {
+        foreach ($this->images as $file) {
+            // Working with DB
+            $model = new UserImages();
+
+            $model->basename = $file->baseName;
+            $model->extension = $file->extension;
+
+            $model->save();
+
+            // Working with files
+            $file->saveAs(Yii::getAlias('@webroot/user_images/') . md5($model->id) . '.' . $file->extension);
+        }
+
+        return true;
     }
 }

@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $model app\models\Form */
 
+use kartik\file\FileInput;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
 
@@ -13,18 +14,18 @@ $this->title = 'Главная';
     <div class="jumbotron">
         <h1>Текст о сайте!</h1>
 
-        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt.</p>
     </div>
 
     <div class="jumbotron">
         <h1>Стоимость фоток!</h1>
 
-        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt./p>
     </div>
 
     <div class="form-for-parents">
 
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
         <?= $form->field($model, 'name')->textInput() ?>
 
@@ -35,6 +36,17 @@ $this->title = 'Главная';
         <?= $form->field($model, 'class')->textInput() ?>
 
         <?= $form->field($model, 'text')->textarea() ?>
+
+        <?= $form->field($model, 'images[]')->widget(FileInput::className(), [
+            'options' => [
+                'accept' => 'image/*',
+                'multiple' => true,
+            ],
+            'pluginOptions' => [
+                'showUpload' => false,
+                'removeClass' => 'btn btn-danger',
+            ],
+        ]) ?>
 
         <?= Html::submitButton('Отправить', [
             'class' => 'btn btn-primary',

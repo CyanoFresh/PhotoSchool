@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -48,14 +49,25 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * Render home page
+     */
     public function actionIndex()
     {
         $model = new Form();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            return $this->render('success', [
-                'model' => $model,
-            ]);
+            $model->images = UploadedFile::getInstances($model, 'images');
+
+            if ($model->upload()) {
+                return $this->render('success', [
+                    'model' => $model,
+                ]);
+            } else {
+                return $this->render('fail', [
+                    'model' => $model,
+                ]);
+            }
         }
 
         return $this->render('index', [
@@ -96,6 +108,11 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
+    }
+
+    public function actionPortfolio()
+    {
+        return $this->render('portfolio');
     }
 
     public function actionAbout()
