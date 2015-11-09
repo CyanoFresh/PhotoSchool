@@ -41,6 +41,19 @@ AppAsset::register($this);
             ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Отзывы', 'url' => ['/site/reviews']],
             ['label' => 'Фотостудия', 'url' => ['/site/studio']],
+            Yii::$app->user->identity ? [
+                'label' => Yii::$app->user->identity->username,
+                'items' => [
+                    ['label' => 'Отзывы', 'url' => ['/admin/reviews']],
+                    ['label' => 'Портфолио', 'url' => ['/admin/portfolio']],
+                    '<li class="divider"></li>',
+                    [
+                        'label' => 'Logout',
+                        'url' => ['/site/logout'],
+                        'linkOptions' => ['data-method' => 'post'],
+                    ],
+                ],
+            ] : '',
         ],
     ]);
     NavBar::end();

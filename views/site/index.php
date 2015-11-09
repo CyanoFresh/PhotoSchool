@@ -44,7 +44,11 @@ $this->title = 'Главная';
             ],
             'pluginOptions' => [
                 'showUpload' => false,
-                'removeClass' => 'btn btn-danger',
+                'showCaption' => false,
+                'showRemove' => false,
+                'browseClass' => 'btn btn-primary btn-block btn-half',
+                'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
+                'browseLabel' =>  'Выбрать фото...'
             ],
         ]) ?>
 

@@ -35,6 +35,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'l' => 'site/login',
             ],
         ],
         'log' => [

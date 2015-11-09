@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Form;
+use app\models\Portfolio;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -112,7 +113,11 @@ class SiteController extends Controller
 
     public function actionPortfolio()
     {
-        return $this->render('portfolio');
+        $model = new Portfolio();
+
+        return $this->render('portfolio', [
+            'model' => $model,
+        ]);
     }
 
     public function actionAbout()
