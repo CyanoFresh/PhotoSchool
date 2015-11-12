@@ -14,20 +14,20 @@ $this->registerJsFile('@web/js/grid.js', [
         'app\assets\ModernizrAsset'
     ],
 ]);
-$this->registerJs('$(function() {
-				Grid.init();
-			});');
+$this->registerJs('$(function(){Grid.init()})');
 ?>
-<div class="site-about">
+<div class="site-portfolio">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <ul id="og-grid" class="og-grid">
         <?php foreach ($model->find()->all() as $item): ?>
-        <li>
-            <a href="#" data-largesrc="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>" data-title="<?= $item->caption ?>" data-description="<?= $item->description ?>">
-                <img src="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>" style="max-height: 200px;" alt="<?= $item->alt ?>">
-            </a>
-        </li>
+            <li>
+                <a href="#" data-largesrc="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>"
+                   data-title="<?= $item->caption ?>" data-description="<?= $item->description ?>">
+                    <img src="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>" style="max-height: 200px;"
+                         alt="<?= $item->alt ?>">
+                </a>
+            </li>
         <?php endforeach ?>
     </ul>
 </div>
