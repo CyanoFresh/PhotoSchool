@@ -12,15 +12,15 @@ $this->title = 'Главная';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Текст о сайте!</h1>
+        <h1>TBD</h1>
 
-        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt.</p>
+        <p class="lead">TBD</p>
     </div>
 
     <div class="jumbotron">
-        <h1>Стоимость фоток!</h1>
+        <h1>TBD</h1>
 
-        <p class="lead">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt./p>
+        <p class="lead">TBD</p>
     </div>
 
     <div class="form-for-parents">

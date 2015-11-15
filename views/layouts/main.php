@@ -44,11 +44,12 @@ AppAsset::register($this);
             Yii::$app->user->identity ? [
                 'label' => Yii::$app->user->identity->username,
                 'items' => [
+                    ['label' => 'Анкеты', 'url' => ['/admin/form']],
                     ['label' => 'Отзывы', 'url' => ['/admin/reviews']],
                     ['label' => 'Портфолио', 'url' => ['/admin/portfolio']],
                     '<li class="divider"></li>',
                     [
-                        'label' => 'Logout',
+                        'label' => 'Выйти',
                         'url' => ['/site/logout'],
                         'linkOptions' => ['data-method' => 'post'],
                     ],

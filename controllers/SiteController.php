@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Form;
 use app\models\Portfolio;
+use app\models\Reviews;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -120,7 +121,16 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionAbout()
+    public function actionReviews()
+    {
+        $model = new Reviews();
+
+        return $this->render('reviews', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionStudio()
     {
         return $this->render('about');
     }
