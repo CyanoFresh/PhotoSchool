@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $images = null;
 
 foreach (\app\models\UserImages::find()->all() as $item) {
-    $images .= Html::img(Yii::getAlias('@web/user_images/' . md5($item->id) . '.' . $item->extension), [
+    $images .= Html::img(Yii::getAlias('@web/uploads/user_images/' . md5($item->id) . '.' . $item->extension), [
 //        'height' => 300,
         'class' => 'img-thumbnail',
     ]);

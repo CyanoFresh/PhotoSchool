@@ -73,7 +73,7 @@ class Form extends ActiveRecord
             $model->save();
 
             // Working with files
-            $file->saveAs(Yii::getAlias('@webroot/user_images/') . md5($model->id) . '.' . $file->extension);
+            $file->saveAs(Yii::getAlias('@webroot/uploads/user_images/') . md5($model->id) . '.' . $file->extension);
         }
 
         return true;

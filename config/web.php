@@ -35,6 +35,10 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'portfolio' => 'site/portfolio',
+                'reviews' => 'site/reviews',
+                'contacts' => 'site/contact',
+                'studio' => 'site/studio',
                 'l' => 'site/login',
             ],
         ],

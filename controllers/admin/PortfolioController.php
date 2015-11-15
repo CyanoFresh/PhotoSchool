@@ -69,7 +69,7 @@ class PortfolioController extends Controller
             $model->image = UploadedFile::getInstance($model, 'image');
 
             if ($model->validate() && $model->save() && $model->image) {
-                $model->image->saveAs(Yii::getAlias('@webroot/portfolio/' . $model->id . '.jpg'));
+                $model->image->saveAs(Yii::getAlias('@webroot/uploads/portfolio/' . $model->id . '.jpg'));
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }

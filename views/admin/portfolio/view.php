@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'image',
                 'format' => 'html',
-                'value' => Html::img(Yii::getAlias('@web/portfolio/' . $model->id . '.jpg'), [
+                'value' => Html::img(Yii::getAlias('@web/uploads/portfolio/' . $model->id . '.jpg'), [
                     'height' => '300px'
                 ]),
             ],

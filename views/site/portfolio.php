@@ -24,7 +24,7 @@ $this->registerJs('$(function(){Grid.init()})');
             <li>
                 <a href="#" data-largesrc="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>"
                    data-title="<?= $item->caption ?>" data-description="<?= $item->description ?>">
-                    <img src="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>" style="max-height: 200px;"
+                    <img src="<?= Yii::getAlias('@web/uploads/portfolio/' . $item->id . '.jpg') ?>" style="max-height: 200px;"
                          alt="<?= $item->alt ?>">
                 </a>
             </li>
