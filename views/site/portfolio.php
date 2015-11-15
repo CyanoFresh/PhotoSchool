@@ -22,7 +22,7 @@ $this->registerJs('$(function(){Grid.init()})');
     <ul id="og-grid" class="og-grid">
         <?php foreach ($model->find()->all() as $item): ?>
             <li>
-                <a href="#" data-largesrc="<?= Yii::getAlias('@web/portfolio/' . $item->id . '.jpg') ?>"
+                <a href="#" data-largesrc="<?= Yii::getAlias('@web/uploads/portfolio/' . $item->id . '.jpg') ?>"
                    data-title="<?= $item->caption ?>" data-description="<?= $item->description ?>">
                     <img src="<?= Yii::getAlias('@web/uploads/portfolio/' . $item->id . '.jpg') ?>" style="max-height: 200px;"
                          alt="<?= $item->alt ?>">
