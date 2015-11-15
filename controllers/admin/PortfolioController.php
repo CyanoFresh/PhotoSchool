@@ -1,28 +1,23 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\admin;
 
+use Yii;
 use app\models\Portfolio;
-use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
+use app\models\PortfolioSearch;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
-class AdminController extends Controller
+/**
+ * PortfolioController implements the CRUD actions for Portfolio model.
+ */
+class PortfolioController extends Controller
 {
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['portfolio', 'view', 'create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -36,13 +31,13 @@ class AdminController extends Controller
      * Lists all Portfolio models.
      * @return mixed
      */
-    public function actionPortfolio()
+    public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Portfolio::find(),
-        ]);
+        $searchModel = new PortfolioSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('portfolio', [
+        return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -52,7 +47,7 @@ class AdminController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionPortfolioView($id)
+    public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -64,17 +59,25 @@ class AdminController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionPortfolioCreate()
+    public function actionCreate()
     {
-        $model = new Portfolio();
+        $model = new Portfolio([
+            'scenario' => 'create',
+        ]);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+
+            if ($model->validate() && $model->save() && $model->image) {
+                $model->image->saveAs(Yii::getAlias('@webroot/portfolio/' . $model->id . '.jpg'));
+
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -83,7 +86,7 @@ class AdminController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionPortfolioUpdate($id)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -102,7 +105,7 @@ class AdminController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionPortfolioDelete($id)
+    public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
@@ -116,7 +119,7 @@ class AdminController extends Controller
      * @return Portfolio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findPortfolioModel($id)
+    protected function findModel($id)
     {
         if (($model = Portfolio::findOne($id)) !== null) {
             return $model;

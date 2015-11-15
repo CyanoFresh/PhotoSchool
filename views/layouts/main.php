@@ -37,7 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Порфолио', 'url' => ['/site/portfolio']],
+            ['label' => 'Портфолио', 'url' => ['/site/portfolio']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Отзывы', 'url' => ['/site/reviews']],
             ['label' => 'Фотостудия', 'url' => ['/site/studio']],

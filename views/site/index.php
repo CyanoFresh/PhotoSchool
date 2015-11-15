@@ -25,7 +25,12 @@ $this->title = 'Главная';
 
     <div class="form-for-parents">
 
-        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+        <?php $form = ActiveForm::begin([
+            'options' => [
+                'class' => 'col-md-6 col-sm-6',
+                'enctype' => 'multipart/form-data',
+            ],
+        ]); ?>
 
         <?= $form->field($model, 'name')->textInput() ?>
 
@@ -46,9 +51,9 @@ $this->title = 'Главная';
                 'showUpload' => false,
                 'showCaption' => false,
                 'showRemove' => false,
-                'browseClass' => 'btn btn-primary btn-block btn-half',
+                'browseClass' => 'btn btn-primary btn-block',
                 'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
-                'browseLabel' =>  'Выбрать фото...'
+                'browseLabel' =>  'Нажмите, чтобы выбрать фото'
             ],
         ]) ?>
 
