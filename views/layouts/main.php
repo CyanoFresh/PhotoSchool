@@ -71,7 +71,7 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <h3>Контакты</h3>
 
                 <p>Фотограф - Соломаха Алена</p>
@@ -80,7 +80,7 @@ AppAsset::register($this);
 
                 <p>vk - vk.com</p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <h3>Телефон</h3>
 
                 <p>+38093485738745</p>
