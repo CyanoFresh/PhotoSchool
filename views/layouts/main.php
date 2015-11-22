@@ -72,7 +72,7 @@ AppAsset::register($this);
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
-                <h3>Контакты фотографа</h3>
+                <h4>Контакты фотографа</h4>
 
                 <p>Алена</p>
 
@@ -82,7 +82,7 @@ AppAsset::register($this);
 				<p><a href="https://www.facebook.com/fotoboooooom/">Facebook group</a></p>
             </div>
 			<div class="col-sm-5">
-                <h3>Контакты студии</h3>
+                <h4>Контакты студии</h4>
 
                 <p>Натали</p>
 
@@ -91,7 +91,7 @@ AppAsset::register($this);
 				<p><a href="https://www.facebook.com/groups/1613728125581846/">Facebook group</a></p>
             </div>
             <div class="col-sm-2">
-                <h3>Телефоны</h3>
+                <h4>Телефоны</h4>
 
                 <p>+38068 710 85 59 Алена фотограф</p>
 				
