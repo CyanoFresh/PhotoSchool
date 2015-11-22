@@ -15,13 +15,12 @@ body {
 }
 
 .footer {
-    background-color: rgba(46, 55, 221, 0.83);
+    background-color: rgba(75, 181, 48, 0.83);
     border-top: 1px solid #ddd;
     padding: 20px 0;
 }
 
-.footer p,
-.footer a {
+.footer p {
     color: #fff;
 }
 
@@ -108,6 +107,6 @@ a.desc:after {
     max-width: 50%;
 }
 
-.jumbotron h1 {
-    font-size: 40px !important;
+.site-index h1 {
+    font-size: 36px !important;
 }
