@@ -1,9 +1,11 @@
 <?php
 
-return [
+$db =  [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=127.0.0.1;dbname=photoschool',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
 ];
+
+\yii\helpers\ArrayHelper::merge($db, require 'db-local.php');
