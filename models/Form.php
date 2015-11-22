@@ -69,6 +69,7 @@ class Form extends ActiveRecord
             // Working with DB
             $model = new UserImages();
 
+            $model->form_id = $this->id;
             $model->basename = $file->baseName;
             $model->extension = $file->extension;
 

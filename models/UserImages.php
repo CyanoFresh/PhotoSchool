@@ -3,15 +3,17 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%user_images}}".
  *
  * @property integer $id
+ * @property integer $form_id
  * @property string $basename
  * @property string $extension
  */
-class UserImages extends \yii\db\ActiveRecord
+class UserImages extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -27,7 +29,7 @@ class UserImages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['basename', 'extension'], 'required'],
+            [['basename', 'extension', 'form_id'], 'required'],
             [['basename'], 'string', 'max' => 255],
             [['extension'], 'string', 'max' => 3]
         ];
@@ -40,6 +42,7 @@ class UserImages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'form_id' => 'Form ID',
             'basename' => 'Basename',
             'extension' => 'Extension',
         ];
