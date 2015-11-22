@@ -41,6 +41,8 @@ $this->title = 'Главная';
 
         <?= $form->field($model, 'phone')->textInput() ?>
 
+        <?= $form->field($model, 'city')->textInput() ?>
+
         <?= $form->field($model, 'school')->textInput() ?>
 
         <?= $form->field($model, 'class')->textInput() ?>

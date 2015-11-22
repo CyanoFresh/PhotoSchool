@@ -39,6 +39,7 @@ foreach (\app\models\UserImages::find()->all() as $item) {
         'attributes' => [
             'id',
             'name',
+            'city',
             'phone',
             'school',
             'class',

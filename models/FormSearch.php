@@ -5,7 +5,6 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Form;
 
 /**
  * FormSearch represents the model behind the search form about `app\models\Form`.
@@ -19,7 +18,7 @@ class FormSearch extends Form
     {
         return [
             [['id'], 'integer'],
-            [['name', 'phone', 'school', 'class', 'text'], 'safe'],
+            [['name', 'phone', 'school', 'city', 'class', 'text'], 'safe'],
         ];
     }
 
@@ -60,6 +59,7 @@ class FormSearch extends Form
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'school', $this->school])
             ->andFilterWhere(['like', 'class', $this->class])

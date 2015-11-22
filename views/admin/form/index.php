@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'phone',
+            'city',
             'school',
             'class',
             'text:ntext',
