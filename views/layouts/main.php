@@ -71,19 +71,31 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-10">
-                <h3>Контакты</h3>
+            <div class="col-sm-5">
+                <h3>Контакты фотографа</h3>
 
-                <p>Фотограф - Соломаха Алена</p>
+                <p>Алена</p>
 
-                <p>сайт - fotoboom.net</p>
+                <p><a href="http://fotoboom.net">fotoboom.net</a></p>
 
-                <p>vk - vk.com</p>
+                <p><a href="https://vk.com/alikosinka">Vkontakte</a></p>
+				<p><a href="https://www.facebook.com/fotoboooooom/">Facebook group</a></p>
+            </div>
+			<div class="col-sm-5">
+                <h3>Контакты студии</h3>
+
+                <p>Натали</p>
+
+                <p><a href="https://vk.com/id320244034">Vkontakte</a></p>
+				<p><a href="https://vk.com/fotosweetdream">Vkontakte group</a></p>
+				<p><a href="https://www.facebook.com/groups/1613728125581846/">Facebook group</a></p>
             </div>
             <div class="col-sm-2">
-                <h3>Телефон</h3>
+                <h3>Телефоны</h3>
 
-                <p>+38093485738745</p>
+                <p>+38068 710 85 59 Алена фотограф</p>
+				
+				<p>+38093 949 42 03 Натали студия</p>
             </div>
         </div>
     </div>
