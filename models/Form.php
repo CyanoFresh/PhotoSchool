@@ -10,6 +10,7 @@ use yii\web\UploadedFile;
  * This is the model class for table "{{%form}}".
  *
  * @property integer $id
+ * @property string $status
  * @property string $city
  * @property string $name
  * @property string $phone
@@ -39,8 +40,8 @@ class Form extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'city', 'class', 'school', 'text'], 'required'],
-            [['name', 'phone', 'city', 'class', 'school'], 'string', 'max' => 255],
+            [['name', 'phone', 'status', 'city', 'class', 'school', 'text'], 'required'],
+            [['name', 'phone', 'status', 'city', 'class', 'school'], 'string', 'max' => 255],
             [['text'], 'string'],
             [['images'], 'image', 'maxFiles' => 5, 'extensions' => 'png, jpg'],
         ];
@@ -53,6 +54,7 @@ class Form extends ActiveRecord
     {
         return [
             'id' => 'ID',
+            'status' => 'Статус',
             'name' => 'Имя',
             'phone' => 'Телефон',
             'city' => 'Город',

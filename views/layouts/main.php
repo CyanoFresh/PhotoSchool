@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+$newFormsCount = \app\models\Form::find()->where(['status' => 'new'])->count();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -35,6 +37,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'Портфолио', 'url' => ['/site/portfolio']],
@@ -42,9 +45,9 @@ AppAsset::register($this);
             ['label' => 'Отзывы', 'url' => ['/site/reviews']],
             ['label' => 'Фотостудия', 'url' => ['/site/studio']],
             Yii::$app->user->identity ? [
-                'label' => Yii::$app->user->identity->username,
+                'label' => Yii::$app->user->identity->username . ' <span class="badge">' . $newFormsCount . '</span>',
                 'items' => [
-                    ['label' => 'Анкеты', 'url' => ['/admin/form']],
+                    ['label' => 'Анкеты <span class="badge">' . $newFormsCount . '</span>', 'url' => ['/admin/form']],
                     ['label' => 'Отзывы', 'url' => ['/admin/reviews']],
                     ['label' => 'Портфолио', 'url' => ['/admin/portfolio']],
                     '<li class="divider"></li>',

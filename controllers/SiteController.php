@@ -58,6 +58,8 @@ class SiteController extends Controller
     {
         $model = new Form();
 
+        $model->status = 'new';
+
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
             $model->images = UploadedFile::getInstances($model, 'images');
 

@@ -18,7 +18,7 @@ class FormSearch extends Form
     {
         return [
             [['id'], 'integer'],
-            [['name', 'phone', 'school', 'city', 'class', 'text'], 'safe'],
+            [['name', 'phone', 'status', 'school', 'city', 'class', 'text'], 'safe'],
         ];
     }
 
@@ -44,6 +44,11 @@ class FormSearch extends Form
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);
@@ -61,6 +66,7 @@ class FormSearch extends Form
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'school', $this->school])
             ->andFilterWhere(['like', 'class', $this->class])
             ->andFilterWhere(['like', 'text', $this->text]);

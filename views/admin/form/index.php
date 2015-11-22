@@ -19,6 +19,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'summaryOptions' => ['class' => 'alert alert-info'],
+        'rowOptions' => function ($model) {
+            /** @var $model app\models\Form */
+            if ($model->status == 'new') {
+                return ['class' => 'success'];
+            } elseif ($model->status === 'viewed') {
+                return ['class' => 'active'];
+            }
+
+            return ['class' => 'active'];
+        },
         'columns' => [
             'id',
             'name',
