@@ -7,7 +7,7 @@ $this->title = 'Вы успешно заполнили анкету';
 ?>
 <div class="site-success">
     <div class="alert alert-success">
-        Вы успешно заполнили анкету. Мы с Вами свяжемся
+        Вы успешно заполнили анкету. Мы с вами свяжемся
     </div>
 
     <a href="<?= \yii\helpers\Url::to('') ?>" class="btn btn-lg btn-primary">
