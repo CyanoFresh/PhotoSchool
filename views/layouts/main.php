@@ -43,7 +43,6 @@ $newFormsCount = \app\models\Form::find()->where(['status' => 'new'])->count();
             ['label' => 'Портфолио', 'url' => ['/site/portfolio']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Отзывы', 'url' => ['/site/reviews']],
-            ['label' => 'Фотостудия', 'url' => ['/site/studio']],
             Yii::$app->user->identity ? [
                 'label' => Yii::$app->user->identity->username . ' <span class="badge">' . $newFormsCount . '</span>',
                 'items' => [
@@ -84,21 +83,10 @@ $newFormsCount = \app\models\Form::find()->where(['status' => 'new'])->count();
                 <p><a href="https://vk.com/alikosinka">Vkontakte</a></p>
 				<p><a href="https://www.facebook.com/fotoboooooom/">Facebook group</a></p>
             </div>
-			<div class="col-sm-5">
-                <h4>Контакты студии</h4>
-
-                <p>Натали</p>
-
-                <p><a href="https://vk.com/id320244034">Vkontakte</a></p>
-				<p><a href="https://vk.com/fotosweetdream">Vkontakte group</a></p>
-				<p><a href="https://www.facebook.com/groups/1613728125581846/">Facebook group</a></p>
-            </div>
             <div class="col-sm-2">
                 <h4>Телефоны</h4>
 
                 <p>+38068 710 85 59 Алена фотограф</p>
-				
-				<p>+38093 949 42 03 Натали студия</p>
             </div>
         </div>
     </div>
