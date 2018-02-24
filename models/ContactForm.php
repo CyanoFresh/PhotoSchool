@@ -54,9 +54,9 @@ class ContactForm extends Model
     {
         if ($this->validate()) {
             return Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom('info@fotoboom.net')
-                ->setSubject($this->subject)
+                ->setTo(Yii::$app->params['adminEmail'])
+                ->setFrom(Yii::$app->params['fromEmail'])
+                ->setSubject('Контактная форма school.fotoboom.net: ' . $this->subject)
                 ->setTextBody('From ' . $this->name . ' ' . $this->email . "\n\nBody:\n\n". $this->body)
                 ->send();
         }
